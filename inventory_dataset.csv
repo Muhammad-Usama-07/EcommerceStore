@@ -1,0 +1,9 @@
+ProductID,SKU,Name,Category,Brand,Flavor,NicotineStrength,Price,StockQuantity,Description,ImageURL
+1,VAPE-DEV-001,Vaporesso XROS 3,Device,Vaporesso,,0mg,45.99,20,Compact pod system with adjustable airflow and 1000mAh battery,https://example.com/images/xros3.jpg
+2,VAPE-DEV-002,SMOK Nord 5,Device,SMOK,,0mg,39.99,15,Powerful pod device with 2000mAh battery and 80W max output,https://example.com/images/nord5.jpg
+3,E-LIQ-001,Naked 100 Hawaiian POG,E-liquid,Naked 100,Passionfruit Orange Guava,3mg,14.99,50,Tropical blend of passionfruit  orange  and guava,https://example.com/images/hawaiianpog.jpg
+4,E-LIQ-002,Juice Head Watermelon Lime,E-liquid,Juice Head,Watermelon Lime,6mg,12.99,35,Fruity watermelon with a zesty lime twist,https://example.com/images/watermelonlime.jpg
+5,PODS-001,JUUL Pods Virginia Tobacco,Pods,JUUL,Virginia Tobacco,5%,16.99,40,Classic rich tobacco flavor JUUL pods (4 pack),https://example.com/images/juulpods.jpg
+6,PODS-002,RELX Infinity Pods,E-liquid Pods,RELX,Fresh Mint,3%,14.99,60,Cool refreshing mint pods for RELX Infinity device,https://example.com/images/relxmint.jpg
+7,ACC-001,GeekVape Aegis Replacement Coils,Accessories,GeekVape,,0mg,9.99,100,Pack of 5 high-quality coils for GeekVape Aegis,https://example.com/images/aegiscoils.jpg
+8,ACC-002,USB-C Vape Charger,Accessories,Generic,,0mg,5.99,200,Fast charging USB-C cable compatible with most vape devices,https://example.com/images/usbcharger.jpg
