@@ -1,8 +1,9 @@
 # EcommerceStore
 
 ## Tools
-- Apify
+- Llama 3
+- Groq
+- praw
 - fastapi
 
 #### Todo 
-- Fetch data from api
