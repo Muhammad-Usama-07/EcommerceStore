@@ -1,46 +1,36 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+import numpy as np
 
-# Set page title
-st.title("📊 CSV File Analyzer")
+st.title("📈 Trending Product Analyzer")
 
-# Upload CSV file
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+uploaded_file = st.file_uploader("Upload CSV", type="csv")
 
-if uploaded_file is not None:
-    # Read the CSV file
+if uploaded_file:
     df = pd.read_csv(uploaded_file)
     
-    # Display success message
-    st.success("File uploaded successfully!")
+    # Clean data: remove rows with missing product
+    df_clean = df.dropna(subset=['flavour_or_product'])
     
-    # Show basic info
-    st.subheader("🔍 Data Overview")
-    st.write(f"**Number of Rows:** {df.shape[0]}")
-    st.write(f"**Number of Columns:** {df.shape[1]}")
+    # Convert datetime
+    df_clean['datetime'] = pd.to_datetime(df_clean['datetime'])
     
-    # Show the dataframe
-    st.subheader("📄 Data Preview")
-    st.dataframe(df)
+    # Show most frequent products
+    st.subheader("🍦 Most Frequently Mentioned Products")
+    freq_counts = df_clean['flavour_or_product'].value_counts().head(10)
+    st.bar_chart(freq_counts)
     
-    # Show statistics for numeric columns
-    st.subheader("📈 Summary Statistics")
-    st.write(df.describe())
+    # Show trending products (weighted by recency)
+    st.subheader("🔥 Trending Products (Recent Mentions Weighted More)")
     
-    # Optional: Plot a histogram for a numeric column
-    st.subheader("📊 Plot a Histogram")
-    numeric_columns = df.select_dtypes(include=['number']).columns.tolist()
+    # Calculate weights
+    latest_date = df_clean['datetime'].max()
+    df_clean['days_ago'] = (latest_date - df_clean['datetime']).dt.days
+    df_clean['weight'] = np.exp(-df_clean['days_ago'] / 30)  # decay factor 30 days
     
-    if numeric_columns:
-        selected_column = st.selectbox("Select a numeric column to plot", numeric_columns)
-        if selected_column:
-            fig, ax = plt.subplots()
-            ax.hist(df[selected_column].dropna(), bins=20, edgecolor="black")
-            ax.set_xlabel(selected_column)
-            ax.set_ylabel("Frequency")
-            st.pyplot(fig)
-    else:
-        st.warning("No numeric columns found for plotting.")
-else:
-    st.info("Please upload a CSV file to get started.")
+    trending = df_clean.groupby('flavour_or_product')['weight'].sum().sort_values(ascending=False).head(10)
+    st.bar_chart(trending)
+    
+    # Show raw data
+    st.subheader("📋 Raw Data")
+    st.dataframe(df_clean)
