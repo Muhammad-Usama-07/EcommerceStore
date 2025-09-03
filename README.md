@@ -5,5 +5,6 @@
 - Groq
 - praw
 - fastapi
+- Streamlit
 
 #### Todo 
