@@ -8,3 +8,5 @@
 - Streamlit
 
 #### Todo 
+
+- csv analyzing added 
