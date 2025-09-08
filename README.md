@@ -7,6 +7,9 @@
 - fastapi
 - Streamlit
 
+## Features
+- csv analyzing added 
+
 #### Todo 
 
-- csv analyzing added 
+
