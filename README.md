@@ -6,6 +6,8 @@
 - praw
 - fastapi
 - Streamlit
+- Gemini Flask
+- Openai
 
 ## Features
 - csv analyzing added 
