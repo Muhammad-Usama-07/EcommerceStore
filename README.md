@@ -13,5 +13,6 @@
 - csv analyzing added 
 
 #### Todo 
+- use gemini flash to do tryon 
 
 
